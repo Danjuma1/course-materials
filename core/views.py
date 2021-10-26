@@ -1,5 +1,9 @@
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, ListView
+import os
+import mimetypes
+from django.conf import settings
+from django.http import HttpResponse, Http404
 
 from .models import Material, Search
 from .forms import AddMaterialForm
@@ -27,3 +31,4 @@ class MaterialsList(ListView):
 
     def get_queryset(self):
         return self.model.objects.all()
+
